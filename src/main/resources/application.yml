@@ -1,0 +1,21 @@
+server:
+  port: 3000
+spring:
+  datasource:
+    username: root
+    password: Lzx12345
+    url: jdbc:mysql://localhost:3306/bms?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  thymeleaf:
+    prefix: classpath:/templates/
+    check-template-location: true
+    cache: false
+    suffix: .html
+    encoding: UTF-8
+    content-type: text/html
+    mode: HTML5
+  security:
+    user:
+      name: lzx
+      password: Lzx12345
+      roles: admin

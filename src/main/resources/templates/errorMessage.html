@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>DeleteBook</title>
+    <link href="/webjars/bootstrap/5.2.2/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/5.2.2/css/bootstrap.min.css}"
+          rel="stylesheet" media="screen"/>
+    <script src="/webjars/jquery/3.6.1/jquery.min.js"
+            th:src="@{/webjars/jquery/3.6.1/jquery.min.js}"></script>
+    <script src="/webjars/bootstrap/5.2.2/js/bootstrap.bundle.min.js"
+            th:src="@{/webjars/bootstrap/5.2.2/js/bootstrap.bundle.min.js}"></script>
+</head>
+<body>
+
+<!--导航栏组件-->
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+    <div class="container">
+        <a class="navbar-brand" th:href="@{http://localhost:3000/home/{reader}(reader=${reader})}">Book Manage
+            System</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <!--导航栏模块-->
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page"
+                       th:href="@{http://localhost:3000/home/{reader}(reader=${reader})}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <div>
+                        <a class="nav-link" th:href="@{http://localhost:3000/readingList/{reader}(reader=${reader})}">BookList</a>
+                    </div>
+                </li>
+            </ul>
+
+            <!--登录状态-->
+            <div style="font-size: 20px">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{#}" th:text="${reader}">name</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!--警示框-->
+<div class="container">
+    <div class="mx-auto" style="width:70%; margin: 30px">
+        <div class="alert alert-primary d-flex align-items-center" role="alert">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                 class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img"
+                 aria-label="Warning:">
+                <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+            </svg>
+            <div class="text-center">
+                <a th:href="@{http://localhost:3000/{type}/{reader}(type=${type},reader=${reader})}" th:text="${msg}">alert</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--页脚-->
+<footer class="footer mt-auto py-3" style="background-color: #e3f2fd; width: 100%; clear: both; margin-top: 15px;">
+    <div class="container text-center">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-snow"
+             viewBox="0 0 16 16">
+            <path d="M8 16a.5.5 0 0 1-.5-.5v-1.293l-.646.647a.5.5 0 0 1-.707-.708L7.5 12.793V8.866l-3.4 1.963-.496 1.85a.5.5 0 1 1-.966-.26l.237-.882-1.12.646a.5.5 0 0 1-.5-.866l1.12-.646-.884-.237a.5.5 0 1 1 .26-.966l1.848.495L7 8 3.6 6.037l-1.85.495a.5.5 0 0 1-.258-.966l.883-.237-1.12-.646a.5.5 0 1 1 .5-.866l1.12.646-.237-.883a.5.5 0 1 1 .966-.258l.495 1.849L7.5 7.134V3.207L6.147 1.854a.5.5 0 1 1 .707-.708l.646.647V.5a.5.5 0 1 1 1 0v1.293l.647-.647a.5.5 0 1 1 .707.708L8.5 3.207v3.927l3.4-1.963.496-1.85a.5.5 0 1 1 .966.26l-.236.882 1.12-.646a.5.5 0 0 1 .5.866l-1.12.646.883.237a.5.5 0 1 1-.26.966l-1.848-.495L9 8l3.4 1.963 1.849-.495a.5.5 0 0 1 .259.966l-.883.237 1.12.646a.5.5 0 0 1-.5.866l-1.12-.646.236.883a.5.5 0 1 1-.966.258l-.495-1.849-3.4-1.963v3.927l1.353 1.353a.5.5 0 0 1-.707.708l-.647-.647V15.5a.5.5 0 0 1-.5.5z"/>
+        </svg>
+        <span class="text-muted" style="margin: 10px">
+            <a class="link-secondary" th:href="@{https://www.luogu.com.cn/blog/lin-zexun/}">Author: WA_automat</a>
+        </span>
+        <span class="text-muted" style="margin: 10px">
+            <a class="link-secondary"
+               th:href="@{https://github.com/WA-automat}">Github: https://github.com/WA-automat</a>
+        </span>
+    </div>
+</footer>
+
+</body>
+</html>
