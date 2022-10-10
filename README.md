@@ -15,7 +15,7 @@ a niubility springboot project
 
 ### 项目技术栈
 
-本人蒟蒻，刚学SpringBoot，写了半天的SpringSecurity没写明白，放弃写注册登录页面了，主要是用到了下面的这些技术
+本人蒟蒻，刚学SpringBoot，写了半天的SpringSecurity没写明白，放弃写注册登录页面了，采用前后端不分离的方式构建页面前后端逻辑，主要是用到了下面的这些技术
 
 > 1. SpringBoot
 > 2. Thymeleaf
