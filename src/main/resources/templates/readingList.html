@@ -52,7 +52,37 @@
 <!--样式风格调整-->
 <div style="margin-bottom: 20px"></div>
 
-<div class="container">
+<div class="container mx-auto" style="margin-top: 40px">
+
+    <!--书单组件-->
+    <!--将书单的内容放置在这里-->
+
+    <div class="card" style="margin: 30px;">
+        <div class="card-header">ReadingList</div>
+        <div class="card-body">
+            <div th:unless="${#lists.isEmpty(booklist)}">
+                <div class="list-group">
+                    <div th:each="book:${booklist}">
+                        <div style="margin: 15px;">
+                            <a th:href="@{#}" class="list-group-item list-group-item-action"
+                               style="background-color: #e3f2fd;">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1" th:text="${book.title}">head</h5>
+                                    <small th:text="${book.author}">3 days ago</small>
+                                </div>
+                                <p class="mb-1" th:text="${book.description}">Some placeholder content in a
+                                    paragraph.</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div th:if="${#lists.isEmpty(booklist)}">
+                <p>There is not a single book in your reading list.</p>
+            </div>
+        </div>
+    </div>
+
     <div class="text-center" style="margin: 5px">
         <!--添加书籍的按钮-->
         <button type="button" class="btn btn-primary btn-lg" style="margin: 15px">
@@ -61,32 +91,19 @@
         </button>
         <!--删除书籍的按钮-->
         <button type="button" class="btn btn-secondary btn-lg" style="margin: 15px">
-            <a th:href="@{http://localhost:3000/deleteBook/{reader}(reader=${reader})}" alt="Delete Book" class="text-white" style="text-decoration: none;">Delete Book</a>
+            <a th:href="@{http://localhost:3000/deleteBook/{reader}(reader=${reader})}" alt="Delete Book"
+               class="text-white" style="text-decoration: none;">Delete Book</a>
         </button>
     </div>
 
-    <!--书单组件-->
-    <!--将书单的内容放置在这里-->
-    <div class="list-group">
-        <div th:each="book:${booklist}">
-            <div style="margin: 20px;">
-                <a th:href="@{#}" class="list-group-item list-group-item-action" style="background-color: #e3f2fd;">
-                    <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1" th:text="${book.title}">head</h5>
-                        <small th:text="${book.author}">3 days ago</small>
-                    </div>
-                    <p class="mb-1" th:text="${book.description}">Some placeholder content in a paragraph.</p>
-                </a>
-            </div>
-        </div>
-    </div>
 </div>
 
 <!--样式风格调整-->
 <div style="margin-bottom: 20px"></div>
 
 <!--页脚-->
-<footer class="footer mt-auto py-3" style="background-color: #e3f2fd; width: 100%; clear: both; margin-top: 15px;">
+<footer class="footer mt-auto py-3"
+        style="background-color: #e3f2fd; position:fixed; bottom:0; width: 100%; clear: both; margin-top: 15px;">
     <div class="container text-center">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-snow"
              viewBox="0 0 16 16">

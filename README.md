@@ -60,3 +60,9 @@ a niubility springboot project
 > 实现Controller以访问上述页面
 >
 > 上传Github并编写README.md
+
+### 2022-10-10
+
+> 更新ui内容
+>
+> 基本完成该项目
