@@ -16,9 +16,11 @@ import java.util.List;
 @Controller
 public class DeleteBookController {
 
+	// 导入ServiceImpl
 	@Autowired
 	private DeleteBookService deleteBookService;
 
+	// 导入ServiceImpl
 	@Autowired
 	private BookInfoService bookInfoService;
 

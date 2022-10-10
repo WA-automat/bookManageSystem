@@ -15,6 +15,7 @@ import java.util.List;
 @Controller
 public class ReadingListController {
 
+	// 导入ServiceImpl
 	@Autowired
 	private BookInfoService bookInfoService;
 

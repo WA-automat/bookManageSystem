@@ -14,9 +14,11 @@ import java.util.List;
 @Service
 public class BookInfoServiceImpl implements BookInfoService {
 
+	// 导入数据库映射
 	@Autowired
 	private BookMapper bookMapper;
 
+	// 覆写方法
 	@Override
 	public List<Book> getInfo(String reader) {
 

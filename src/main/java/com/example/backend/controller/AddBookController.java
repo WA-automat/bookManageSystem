@@ -16,9 +16,11 @@ import java.util.List;
 @Controller
 public class AddBookController {
 
+	// 导入ServiceImpl
 	@Autowired
 	private AddBookService addBookService;
 
+	// 导入ServiceImpl
 	@Autowired
 	private BookInfoService bookInfoService;
 

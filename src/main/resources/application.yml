@@ -9,7 +9,7 @@ spring:
   thymeleaf:
     prefix: classpath:/templates/
     check-template-location: true
-    cache: false
+    cache: true
     suffix: .html
     encoding: UTF-8
     content-type: text/html

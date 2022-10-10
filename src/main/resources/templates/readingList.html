@@ -41,7 +41,7 @@
             <div style="font-size: 20px">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" th:href="@{#}" th:text="${reader}">name</a>
+                        <a class="nav-link" th:href="@{#}" th:text="'User: ' + ${reader}">name</a>
                     </li>
                 </ul>
             </div>
@@ -67,10 +67,10 @@
                             <a th:href="@{#}" class="list-group-item list-group-item-action"
                                style="background-color: #e3f2fd;">
                                 <div class="d-flex w-100 justify-content-between">
-                                    <h5 class="mb-1" th:text="${book.title}">head</h5>
-                                    <small th:text="${book.author}">3 days ago</small>
+                                    <h5 class="mb-1" th:text="'Title: ' + ${book.title}">head</h5>
+                                    <small th:text="'Author: ' + ${book.author}">3 days ago</small>
                                 </div>
-                                <p class="mb-1" th:text="${book.description}">Some placeholder content in a
+                                <p class="mb-1" th:text="'Description: ' + ${book.description}">Some placeholder content in a
                                     paragraph.</p>
                             </a>
                         </div>

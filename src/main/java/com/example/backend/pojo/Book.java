@@ -17,6 +17,7 @@ import lombok.NoArgsConstructor;
 public class Book {
 
 	// id作为读者的主键
+	// 使用IdType将id设置为自动增加
 	@TableId(type = IdType.AUTO)
 	private Integer id;
 
