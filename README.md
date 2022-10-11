@@ -77,3 +77,5 @@ a niubility springboot project
 > 添加更新页：用于更新书籍的Description
 >
 > 完成错误页面的扩展
+>
+> 实现Reader的Pojo层和Mapper层（给自己画饼，以后实现SpringSecurity登录与注册）
