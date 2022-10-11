@@ -14,9 +14,11 @@ public class DeleteBookPageController {
 			@PathVariable("reader") String reader,
 			Model model
 	) {
+
 		// 传入读者变量
 		model.addAttribute("reader", reader);
 		return "deleteBookPage";
+
 	}
 
 }
