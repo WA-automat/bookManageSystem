@@ -26,4 +26,10 @@ public class Reader {
 
 	private String photo = null;
 	private String email = null;
+
+	// 自定义排序方式 (这里按用户名称排序)
+	public int compareTo(Reader reader) {
+		return this.readerName.compareTo(reader.readerName);
+	}
+
 }
