@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="">
 <head>
     <meta charset="UTF-8">
-    <title>ReadingList</title>
+    <title>AddBook</title>
     <link href="/webjars/bootstrap/5.2.2/css/bootstrap.min.css"
           th:href="@{/webjars/bootstrap/5.2.2/css/bootstrap.min.css}"
           rel="stylesheet" media="screen"/>
@@ -31,8 +31,7 @@
                 </li>
                 <li class="nav-item">
                     <div>
-                        <a class="nav-link active"
-                           th:href="@{http://localhost:3000/readingList/{reader}(reader=${reader})}">BookList</a>
+                        <a class="nav-link" th:href="@{http://localhost:3000/readingList/{reader}(reader=${reader})}">BookList</a>
                     </div>
                 </li>
             </ul>
@@ -49,59 +48,25 @@
     </div>
 </nav>
 
-<!--样式风格调整-->
-<div style="margin-bottom: 20px"></div>
-
-<div class="container mx-auto" style="margin-top: 40px">
-
-    <!--书单组件-->
-    <!--将书单的内容放置在这里-->
-
-    <div class="card" style="margin: 30px;">
-        <div class="card-header">ReadingList</div>
-        <div class="card-body">
-            <div th:unless="${#lists.isEmpty(booklist)}">
-                <div class="list-group">
-                    <div th:each="book:${booklist}">
-                        <div style="margin: 15px;">
-                            <a th:href="@{http://localhost:3000/updateBook/{reader}/{title}/{author}(reader=${reader},title=${book.title},author=${book.author})}"
-                               class="list-group-item list-group-item-action"
-                               style="background-color: #e3f2fd;">
-                                <div class="d-flex w-100 justify-content-between">
-                                    <h5 class="mb-1" th:text="'Title: ' + ${book.title}">head</h5>
-                                    <small th:text="'Author: ' + ${book.author}">3 days ago</small>
-                                </div>
-                                <p class="mb-1" th:text="'Description: ' + ${book.description}">Some placeholder content
-                                    in a
-                                    paragraph.</p>
-                            </a>
-                        </div>
+<!--添加书本的表单-->
+<div class="container">
+    <div class="mx-auto" style="margin: 75px; width: 80%;">
+        <div class="card">
+            <p class="card-header">Update book description</p>
+            <div class="card-body">
+                <form th:action="@{http://localhost:3000/update/{reader}/{title}/{author}(reader=${reader},title=${title},author=${author})}"
+                      method="post">
+                    <div class="mb-3">
+                        <label for="InputDescription" class="form-label">Description</label>
+                        <textarea class="form-control" id="InputDescription" rows="10" name="newDescription"></textarea>
                     </div>
-                </div>
-            </div>
-            <div th:if="${#lists.isEmpty(booklist)}">
-                <p>There is not a single book in your reading list.</p>
+                    <button type="submit" class="btn btn-primary text-center">Update</button>
+                </form>
             </div>
         </div>
     </div>
-
-    <div class="text-center" style="margin: 5px">
-        <!--添加书籍的按钮-->
-        <button type="button" class="btn btn-primary btn-lg" style="margin: 15px">
-            <a th:href="@{http://localhost:3000/addBook/{reader}(reader=${reader})}" alt="Add Book" class="text-white"
-               style="text-decoration: none;">Add Book</a>
-        </button>
-        <!--删除书籍的按钮-->
-        <button type="button" class="btn btn-secondary btn-lg" style="margin: 15px">
-            <a th:href="@{http://localhost:3000/deleteBook/{reader}(reader=${reader})}" alt="Delete Book"
-               class="text-white" style="text-decoration: none;">Delete Book</a>
-        </button>
-    </div>
-
 </div>
 
-<!--样式风格调整-->
-<div style="margin-bottom: 20px"></div>
 
 <!--页脚-->
 <footer class="footer mt-auto py-3"
@@ -120,6 +85,6 @@
         </span>
     </div>
 </footer>
-
 </body>
+
 </html>
