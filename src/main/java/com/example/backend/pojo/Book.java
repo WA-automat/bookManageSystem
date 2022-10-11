@@ -32,4 +32,8 @@ public class Book {
 	@NonNull
 	private String description;     // 对书籍的描述
 
+	public int compareTo(Book book) {
+		return this.author.compareTo(book.author);
+	}
+
 }

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.List;
 
@@ -20,7 +21,8 @@ public class UpdateBookDescriptionController {
 	@Autowired
 	private BookInfoService bookInfoService;
 
-	@RequestMapping("/update/{reader}/{title}/{author}")
+	@RequestMapping(value = "/update/{reader}/{title}/{author}",
+			method = RequestMethod.POST)
 	public String update(
 			@PathVariable("reader") String reader,
 			@PathVariable("title") String title,
@@ -28,6 +30,20 @@ public class UpdateBookDescriptionController {
 			String newDescription,
 			Model model
 	) {
+
+		if (newDescription == null) {
+			// 当更新的description为null时，返回错误信息
+			model.addAttribute("type", "readingList");
+			model.addAttribute("msg", "Do not enter null values");
+			model.addAttribute("reader", reader);
+			return "errorMessage";
+		} else if (newDescription.equals("")) {
+			// 当更新的description为空时，返回错误信息
+			model.addAttribute("type", "readingList");
+			model.addAttribute("msg", "Do not enter null values");
+			model.addAttribute("reader", reader);
+			return "errorMessage";
+		}
 
 		// 更新书籍的内容
 		updateDescriptionService.updateDescription(

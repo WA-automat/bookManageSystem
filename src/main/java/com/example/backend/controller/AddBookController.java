@@ -3,6 +3,7 @@ package com.example.backend.controller;
 import com.example.backend.pojo.Book;
 import com.example.backend.service.book.AddBookService;
 import com.example.backend.service.book.BookInfoService;
+import com.example.backend.utils.BookComparator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -50,6 +51,7 @@ public class AddBookController {
 		if (message.equals("success")) {
 			// 转移至readingList页面
 			List<Book> booklist = bookInfoService.getInfo(reader);
+			booklist.sort(new BookComparator());
 			model.addAttribute("reader", reader);
 			model.addAttribute("booklist", booklist);
 			return "readingList";

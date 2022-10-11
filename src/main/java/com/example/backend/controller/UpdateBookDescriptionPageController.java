@@ -5,6 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+// 用于更新书籍的描述的Controller
 @Controller
 public class UpdateBookDescriptionPageController {
 
