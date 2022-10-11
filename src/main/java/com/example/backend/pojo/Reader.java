@@ -7,6 +7,11 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 
+// 用户的pojo类
+// 目的为链接数据库和java文件
+// @Data导入了必要的函数
+// @NoArgsConstructor导入无参构造函数
+// @AllArgsConstructor导入全参构造函数
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -19,6 +24,6 @@ public class Reader {
 	@NonNull
 	private String password;
 
-	private String photo;
-	private String email;
+	private String photo = null;
+	private String email = null;
 }
