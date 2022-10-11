@@ -32,6 +32,7 @@ public class Book {
 	@NonNull
 	private String description;     // 对书籍的描述
 
+	// 自定义排序方式 (这里按作者姓名排序)
 	public int compareTo(Book book) {
 		return this.author.compareTo(book.author);
 	}

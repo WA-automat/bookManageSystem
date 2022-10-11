@@ -47,11 +47,15 @@ public class AddBookController {
 			model.addAttribute("reader", reader);
 			return "errorMessage";
 		}
+
+		// 获取Service结果
 		String message = addBookService.addBook(reader, title, author, description);
 		if (message.equals("success")) {
 			// 转移至readingList页面
 			List<Book> booklist = bookInfoService.getInfo(reader);
+			// 记得排序
 			booklist.sort(new BookComparator());
+
 			model.addAttribute("reader", reader);
 			model.addAttribute("booklist", booklist);
 			return "readingList";
