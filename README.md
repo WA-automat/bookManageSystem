@@ -64,5 +64,9 @@ a niubility springboot project
 ### 2022-10-10
 
 > 更新ui内容
+
+### 2022-10-11
+
+> 添加配置
 >
 > 基本完成该项目
