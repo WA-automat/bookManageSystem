@@ -33,6 +33,19 @@ public class AddBookController {
 			String description,
 			Model model
 	) {
+		if (title == null || author == null || description == null) {
+			// 当输入的内容为null时，返回错误页面
+			model.addAttribute("type", "addBook");
+			model.addAttribute("msg", "Do not enter null values");
+			model.addAttribute("reader", reader);
+			return "errorMessage";
+		} else if (title.equals("") || author.equals("") || description.equals("")) {
+			// 当输入的内容为空时，返回错误页面
+			model.addAttribute("type", "addBook");
+			model.addAttribute("msg", "Do not enter null values");
+			model.addAttribute("reader", reader);
+			return "errorMessage";
+		}
 		String message = addBookService.addBook(reader, title, author, description);
 		if (message.equals("success")) {
 			// 转移至readingList页面
@@ -40,12 +53,6 @@ public class AddBookController {
 			model.addAttribute("reader", reader);
 			model.addAttribute("booklist", booklist);
 			return "readingList";
-		} else if (title.equals("") || author.equals("") || description.equals("")) {
-			// 当输入的内容为空时，返回错误页面
-			model.addAttribute("type", "addBook");
-			model.addAttribute("msg", "Do not enter null values");
-			model.addAttribute("reader", reader);
-			return "errorMessage";
 		} else {
 			// 当输入的内容已经存在时
 			model.addAttribute("type", "addBook");

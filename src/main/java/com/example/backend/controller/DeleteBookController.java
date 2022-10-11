@@ -32,6 +32,19 @@ public class DeleteBookController {
 			String author,
 			Model model
 	) {
+		if (title == null || author == null) {
+			// 当删除内容为null时，返回错误页面
+			model.addAttribute("type", "deleteBook");
+			model.addAttribute("msg", "Do not enter null values");
+			model.addAttribute("reader", reader);
+			return "errorMessage";
+		} else if (title.equals("") || author.equals("")) {
+			// 当删除内容为空时，返回错误页面
+			model.addAttribute("type", "deleteBook");
+			model.addAttribute("msg", "Do not enter null values");
+			model.addAttribute("reader", reader);
+			return "errorMessage";
+		}
 		String message = deleteBookService.deleteBook(reader, title, author);
 		if (message.equals("success")) {
 			// 转移至readingList页面
@@ -39,11 +52,6 @@ public class DeleteBookController {
 			model.addAttribute("reader", reader);
 			model.addAttribute("booklist", booklist);
 			return "readingList";
-		} else if (title.equals("") || author.equals("")) {
-			model.addAttribute("type", "deleteBook");
-			model.addAttribute("msg", "Do not enter null values");
-			model.addAttribute("reader", reader);
-			return "errorMessage";
 		} else {
 			model.addAttribute("type", "deleteBook");
 			model.addAttribute("msg", "Please do not delete that have not been added");

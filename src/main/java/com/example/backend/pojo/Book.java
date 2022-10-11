@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
 
 // 书的pojo类
 // 目的为链接数据库和java文件
@@ -21,9 +22,14 @@ public class Book {
 	@TableId(type = IdType.AUTO)
 	private Integer id;
 
+	// 所有属性都不可为空
+	@NonNull
 	private String reader;          // 读者名称
+	@NonNull
 	private String title;           // 书名
+	@NonNull
 	private String author;          // 作者名
+	@NonNull
 	private String description;     // 对书籍的描述
 
 }
