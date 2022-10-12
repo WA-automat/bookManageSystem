@@ -7,6 +7,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * @author WA_automat
+ * @version 1.0
+ * @since 2022-10-12
+ */
 // 为防止出现跨域问题而创建CorsConfig类
 @Configuration
 public class CorsConfig implements Filter {

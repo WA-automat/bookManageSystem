@@ -12,6 +12,11 @@ import java.util.Base64;
 import java.util.Date;
 import java.util.UUID;
 
+/**
+ * @author WA_automat
+ * @version 1.0
+ * @since 2022-10-12
+ */
 // 加入Jwt工具类，为后续实现登录模块画饼
 @Component
 public class JwtUtil {

@@ -9,6 +9,11 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * @author WA_automat
+ * @version 1.0
+ * @since 2022-10-12
+ */
 // 向数据库中删除一个元组
 // 用于用户在书单中删除一本书
 @Service
