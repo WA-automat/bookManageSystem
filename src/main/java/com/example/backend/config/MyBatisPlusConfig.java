@@ -17,7 +17,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @MapperScan({"com.example.backend.mapper", "com.example.backend.pojo"})
 public class MyBatisPlusConfig {
 	/**
-	 * 分页
+	 * MyBatis-Plus分页
 	 */
 	@Bean
 	public MybatisPlusInterceptor mybatisPlusInterceptor() {
@@ -26,4 +26,5 @@ public class MyBatisPlusConfig {
 		mybatisPlusInterceptor.addInnerInterceptor(paginationInnerInterceptor);
 		return mybatisPlusInterceptor;
 	}
+
 }
