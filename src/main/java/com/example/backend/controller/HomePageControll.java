@@ -9,6 +9,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.Objects;
+
 /**
  * @author WA_automat
  * @version 1.0
@@ -19,23 +21,26 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class HomePageControll {
 
-	// 将reader路径重定向至home页面
-	@ApiOperation(value = "Redirected '/' to HomePage")
-	@ApiImplicitParams({
-			@ApiImplicitParam(name = "reader", value = "username", required = true),
-			@ApiImplicitParam(name = "model", value = "thymeleaf's param", required = false),
-	})
-	@RequestMapping("/{reader}")
-	public String index(
-			@PathVariable("reader") String reader,
-			Model model
-	) {
-
-		// 传入读者变量
-		model.addAttribute("reader", reader);
-		return "homePage";
-
-	}
+//	// 将reader路径重定向至home页面
+//	@ApiOperation(value = "Redirected '/' to HomePage")
+//	@ApiImplicitParams({
+//			@ApiImplicitParam(name = "reader", value = "username", required = true),
+//			@ApiImplicitParam(name = "model", value = "thymeleaf's param", required = false),
+//	})
+//	@RequestMapping("/{reader}")
+//	public String index(
+//			@PathVariable("reader") String reader,
+//			Model model
+//	) {
+//
+//		if (!Objects.equals(reader, "swagger-ui.html#")) {
+//			// 传入读者变量
+//			model.addAttribute("reader", reader);
+//			return "homePage";
+//		}
+//		return null;
+//
+//	}
 
 	// 定向至home主页
 	@ApiOperation(value = "Redirected to HomePage")
