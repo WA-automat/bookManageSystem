@@ -15,10 +15,12 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  * @version 1.0
  * @since 2022-10-12
  */
+// 配置Swagger信息，用于实现API文档信息
 @Configuration // 标明是配置类
 @EnableSwagger2 //开启swagger功能
 public class SwaggerConfig {
 
+	// 创建API文档
 	@Bean
 	public Docket createRestApi() {
 		return new Docket(DocumentationType.SWAGGER_2)  // DocumentationType.SWAGGER_2 固定的，代表swagger2
