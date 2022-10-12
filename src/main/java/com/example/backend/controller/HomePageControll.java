@@ -37,7 +37,7 @@ public class HomePageControll {
 
 	}
 
-
+	// 定向至home主页
 	@ApiOperation(value = "Redirected to HomePage")
 	@ApiImplicitParams({
 			@ApiImplicitParam(name = "reader", value = "username", required = true),
