@@ -29,4 +29,7 @@ spring:
       key-prefix: sms_
       cache-null-values: false
       time-to-live: 10s
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
 

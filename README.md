@@ -79,3 +79,13 @@ a niubility springboot project
 > 完成错误页面的扩展
 >
 > 实现Reader的Pojo层和Mapper层（给自己画饼，以后实现SpringSecurity登录与注册）
+
+### 2022-10-12
+
+> 完成swagger2实现的API文档
+>
+> 更新ui内容
+>
+> 完成注释注解内容
+>
+> 完成swagger注解内容
