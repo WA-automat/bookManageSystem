@@ -11,13 +11,32 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * @author WA_automat
- * @since 2022-10-12
  * @version 1.0
+ * @since 2022-10-12
  */
 // 主页的页面Controller
 @Api(tags = "Home page controller")
 @Controller
 public class HomePageControll {
+
+	// 将reader路径重定向至home页面
+	@ApiOperation(value = "Redirected '/' to HomePage")
+	@ApiImplicitParams({
+			@ApiImplicitParam(name = "reader", value = "username", required = true),
+			@ApiImplicitParam(name = "model", value = "thymeleaf's param", required = false),
+	})
+	@RequestMapping("/{reader}")
+	public String index(
+			@PathVariable("reader") String reader,
+			Model model
+	) {
+
+		// 传入读者变量
+		model.addAttribute("reader", reader);
+		return "homePage";
+
+	}
+
 
 	@ApiOperation(value = "Redirected to HomePage")
 	@ApiImplicitParams({
