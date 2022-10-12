@@ -5,6 +5,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
 import org.springframework.cache.annotation.EnableCaching;
 
+/**
+ * @author WA_automat
+ * @version 1.0
+ * @since 2022-10-12
+ */
 @SpringBootApplication(exclude = {SecurityAutoConfiguration.class})
 // 开启自动缓存
 @EnableCaching

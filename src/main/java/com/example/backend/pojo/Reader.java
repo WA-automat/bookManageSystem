@@ -3,6 +3,7 @@ package com.example.backend.pojo;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -26,12 +27,16 @@ public class Reader {
 
 	@NonNull
 	@TableId(type=IdType.NONE)
+	@ApiModelProperty(value = "username", required = true)
 	private String readerName;
 
 	@NonNull
+	@ApiModelProperty(value = "user's password", required = true)
 	private String password;
 
+	@ApiModelProperty(value = "user's photo", required = false)
 	private String photo = null;
+	@ApiModelProperty(value = "user's email", required = false)
 	private String email = null;
 
 	// 自定义排序方式 (这里按用户名称排序)
