@@ -90,6 +90,7 @@ public class DeleteBookController {
 
 			model.addAttribute("reader", reader);
 			model.addAttribute("booklist", booklist);
+			model.addAttribute("listType", true);
 			return "readingList";
 		} else {
 			model.addAttribute("type", "deleteBook");

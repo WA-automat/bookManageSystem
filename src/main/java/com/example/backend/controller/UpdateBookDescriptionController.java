@@ -92,6 +92,7 @@ public class UpdateBookDescriptionController {
 
 		model.addAttribute("reader", reader);
 		model.addAttribute("booklist", booklist);
+		model.addAttribute("listType", true);
 		return "readingList";
 
 	}

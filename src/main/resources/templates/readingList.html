@@ -69,7 +69,10 @@
     <!--将书单的内容放置在这里-->
 
     <div class="card" style="margin: 30px;">
-        <div class="card-header">ReadingList</div>
+        <div class="card-header">
+            <div th:if="${listType eq true}">ReadingList</div>
+            <div th:unless="${listType eq true}">SearchList</div>
+        </div>
         <div class="card-body">
             <div th:unless="${#lists.isEmpty(booklist)}">
                 <div class="list-group">
@@ -81,6 +84,9 @@
                                 <div class="d-flex w-100 justify-content-between">
                                     <h5 class="mb-1" th:text="'Title: ' + ${book.title}">head</h5>
                                     <small th:text="'Author: ' + ${book.author}">3 days ago</small>
+                                    <div th:unless="${listType eq true}">
+                                        <small th:text="'Reader: ' + ${book.reader}">3 days ago</small>
+                                    </div>
                                 </div>
                                 <p class="mb-1" th:text="'Description: ' + ${book.description}">Some placeholder content
                                     in a

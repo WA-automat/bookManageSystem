@@ -92,6 +92,7 @@ public class AddBookController {
 
 			model.addAttribute("reader", reader);
 			model.addAttribute("booklist", booklist);
+			model.addAttribute("listType", true);
 			return "readingList";
 		} else {
 			// 当输入的内容已经存在时
