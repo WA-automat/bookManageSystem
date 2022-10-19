@@ -19,8 +19,8 @@ import java.util.List;
 
 /**
  * @author WA_automat
- * @since 2022-10-12
  * @version 1.0
+ * @since 2022-10-12
  */
 // 删除书籍的逻辑Controller
 @Api(tags = "Delete book logic controller")
@@ -34,6 +34,12 @@ public class DeleteBookController {
 	// 导入ServiceImpl
 	@Autowired
 	private BookInfoService bookInfoService;
+
+	// 正则表达式匹配项
+	private static final String externPattern =
+			"([\\w\\W]*)<([\\w\\W]*)>([\\w\\W]*)</([\\w\\W]*)>([\\w\\W]*)";
+	private static final String inlinePattern =
+			"([\\w\\W]*)<([\\w\\W]*)/>([\\w\\W]*)";
 
 	@ApiOperation(value = "Delete books from the database")
 	@ApiImplicitParams({
@@ -60,6 +66,16 @@ public class DeleteBookController {
 			// 当删除内容为空时，返回错误页面
 			model.addAttribute("type", "deleteBook");
 			model.addAttribute("msg", "Do not enter null values");
+			model.addAttribute("reader", reader);
+			return "errorMessage";
+		}
+
+		// 防止XSS注入
+		if (title.matches(externPattern) || author.matches(externPattern)
+				|| title.matches(inlinePattern) || author.matches(inlinePattern)) {
+			// 当遭受XSS注入时，返回错误页面
+			model.addAttribute("type", "deleteBook");
+			model.addAttribute("msg", "XSS!");
 			model.addAttribute("reader", reader);
 			return "errorMessage";
 		}

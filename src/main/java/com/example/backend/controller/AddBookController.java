@@ -35,6 +35,12 @@ public class AddBookController {
 	@Autowired
 	private BookInfoService bookInfoService;
 
+	// 正则表达式匹配项
+	private static final String externPattern =
+			"([\\w\\W]*)<([\\w\\W]*)>([\\w\\W]*)</([\\w\\W]*)>([\\w\\W]*)";
+	private static final String inlinePattern =
+			"([\\w\\W]*)<([\\w\\W]*)/>([\\w\\W]*)";
+
 	@ApiOperation(value = "Add books to the database")
 	@ApiImplicitParams({
 			@ApiImplicitParam(name = "reader", value = "username", required = true),
@@ -62,6 +68,16 @@ public class AddBookController {
 			// 当输入的内容为空时，返回错误页面
 			model.addAttribute("type", "addBook");
 			model.addAttribute("msg", "Do not enter null values");
+			model.addAttribute("reader", reader);
+			return "errorMessage";
+		}
+
+		// 防止XSS注入
+		if (title.matches(externPattern) || author.matches(externPattern) || description.matches(externPattern)
+				|| title.matches(inlinePattern) || author.matches(inlinePattern) || description.matches(inlinePattern)) {
+			// 当遭受XSS注入时，返回错误页面
+			model.addAttribute("type", "addBook");
+			model.addAttribute("msg", "XSS!");
 			model.addAttribute("reader", reader);
 			return "errorMessage";
 		}
