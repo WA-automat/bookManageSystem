@@ -95,3 +95,5 @@ a niubility springboot project
 ### 2022-10-19
 
 > 更新pom.xml配置
+>
+> 对增删改动书籍进行XSS注入的防御配置与编写
