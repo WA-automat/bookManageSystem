@@ -27,12 +27,16 @@ public class SearchBookServiceImpl implements SearchBookService {
 
 		// 创建一个查询数据库的对象
 		// 使用like进行正则匹配取出结果
+		// 只需要书名，作者，描述，读者之中包含了模式串
+		// 就可以被匹配到
 		QueryWrapper<Book> queryWrapper = new QueryWrapper<>();
 		queryWrapper.like("title", str)
 				.or()
 				.like("author", str)
 				.or()
-				.like("description", str);
+				.like("description", str)
+				.or()
+				.like("reader", str);
 
 		// 根据查询获取结果
 		return bookMapper.selectList(queryWrapper);

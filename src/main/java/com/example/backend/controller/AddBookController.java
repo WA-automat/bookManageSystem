@@ -47,7 +47,7 @@ public class AddBookController {
 			@ApiImplicitParam(name = "title", value = "book's title", required = true),
 			@ApiImplicitParam(name = "author", value = "book's author", required = true),
 			@ApiImplicitParam(name = "description", value = "Readers' comment on the book", required = true),
-			@ApiImplicitParam(name = "model", value = "thymeleaf's param", required = false),
+			@ApiImplicitParam(name = "model", value = "thymeleaf's param", required = false)
 	})
 	@RequestMapping(value = "/add/{reader}",
 			method = RequestMethod.POST)
