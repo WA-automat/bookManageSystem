@@ -32,4 +32,8 @@ spring:
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher
+  artemis:
+    user: WA_automat
+    password: Lzx12345
+    broker-url: tcp://backend.example.com
 

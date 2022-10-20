@@ -16,6 +16,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement
 @MapperScan({"com.example.backend.mapper", "com.example.backend.pojo"})
 public class MyBatisPlusConfig {
+
 	/**
 	 * MyBatis-Plus分页
 	 */
