@@ -97,3 +97,11 @@ a niubility springboot project
 > 更新pom.xml配置
 >
 > 对增删改动书籍进行XSS注入的防御配置与编写
+
+### 2022-10-20
+
+> 添加搜索框功能
+>
+> 更新thymeleaf模板页面
+>
+> 对搜索框添加XSS注入防御
